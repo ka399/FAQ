@@ -35,10 +35,30 @@ class UserTest extends TestCase
      * Unit test to check if question comes back as an object
      *
      * @return void
+     *
+     *
+     *
+     *
      */
     public function testQuestions()
     {
         $user = factory(\App\User::class)->make();
         $this->assertTrue(is_object($user->questions()->get()));
+    }
+
+
+    /**
+     * Unit test to check if answer comes back as an object
+     *
+     * @return void
+     *
+     *
+     *
+     *
+     */
+    public function testAnswers()
+    {
+        $user = factory(\App\User::class)->make();
+        $this->assertTrue(is_object($user->answers()->get()));
     }
 }
