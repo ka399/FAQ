@@ -16,14 +16,20 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
+/*...Profile--*/
 Route::get('/user/{user_id}/profile/{profile_id}', 'ProfileController@show')->name('profile.show');
+Route::get('/user/{user_id}/profile', 'ProfileController@create')->name('profile.create');
+Route::post('/user/{user_id}/profile/', 'ProfileController@store')->name('profile.store');
 
+
+/*...Answer--*/
+Route::get('/questions/{question_id}/answers/{answer_id}', 'AnswerController@show')->name('answer.show');
+
+
+/*..Question--*/
 Route::resources([
     'question' => 'QuestionController',
 ]);
 
-
-Route::get('/questions/{question_id}/answers/{answer_id}', 'AnswerController@show')->name('answer.show');
