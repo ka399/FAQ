@@ -75,7 +75,7 @@ class QuestionController extends Controller
         $question->save();
 
         //Display the Home Page
-        return redirect()->route('home')->with('message', 'New Question is Saved!');
+        return redirect()->route('home')->with('message', 'New Question Saved Successfully!');
     }
 
     /**
@@ -118,7 +118,7 @@ class QuestionController extends Controller
         ]);
         $question->body = $request->body;
         $question->save();
-        return redirect()->route('question.show',['question_id' => $question->id])->with('message', 'Saved');
+        return redirect()->route('question.show',['question_id' => $question->id])->with('message', 'Question Updated Successfully!');
     }
 
     /**
@@ -127,8 +127,11 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Question $question)
     {
-        //
+        $id = $question->id;
+        $question->delete();
+        $message = 'Question Deleted Successfully!';
+        return redirect()->route('home')->with('message', $message);
     }
 }
