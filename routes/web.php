@@ -17,20 +17,17 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
-/*...Profile--*/
-Route::get('/user/{user_id}/profile/{profile_id}', 'ProfileController@show')->name('profile.show');
 Route::get('/user/{user_id}/profile', 'ProfileController@create')->name('profile.create');
-Route::post('/user/{user_id}/profile/', 'ProfileController@store')->name('profile.store');
+Route::get('/user/{user_id}/profile/{profile_id}', 'ProfileController@show')->name('profile.show');
 Route::get('/user/{user_id}/profile/{profile_id}/edit', 'ProfileController@edit')->name('profile.edit');
+Route::post('/user/{user_id}/profile/', 'ProfileController@store')->name('profile.store');
 Route::patch('/user/{user_id}/profile/{profile_id}', 'ProfileController@update')->name('profile.update');
+Route::delete('/user/{user_id}/profile/{profile_id}', 'ProfileController@destroy')->name('profile.destroy');
+Route::get('/questions/{question_id}/answers/create', 'AnswerController@create')->name('answers.create');
+Route::get('/questions/{question_id}/answers/{answer_id}', 'AnswerController@show')->name('answers.show');
 
+Route::post('/questions/{question_id}/answers/', 'AnswerController@store')->name('answers.store');
 
-/*...Answer--*/
-Route::get('/questions/{question_id}/answers/{answer_id}', 'AnswerController@show')->name('answer.show');
-
-
-/*..Question--*/
 Route::resources([
     'question' => 'QuestionController',
 ]);
