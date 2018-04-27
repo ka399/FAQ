@@ -92,6 +92,11 @@
     </nav>
 
     <main class="py-4">
+        <div class="col-12">
+            @include('Flash.error')
+            @include('Flash.messages')
+            @include('Flash.status')
+        </div>
         @yield('content')
     </main>
 </div>

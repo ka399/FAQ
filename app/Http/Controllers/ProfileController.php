@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Profile;
+use App\User;
 
 class ProfileController extends Controller
 {
@@ -70,7 +71,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the user profile.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -89,26 +90,58 @@ class ProfileController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the user profile.
      *
-     * @param  int  $id
+     * @param  int  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($user, $profile)
     {
-        //
+        //Find the corresponding user
+        $user = User::find($user);
+
+        //Get the user profile
+        $profile = $user->profile;
+
+        //Set the edit variable = true
+        $edit = TRUE;
+
+        //display the profile form in edit mode
+        return view('profileForm', ['profile' => $profile, 'edit' => $edit ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  use App\Profile $user
+     * @param  use App\User $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,  $user, $profile)
     {
-        //
+        //Validations
+        $input = $request->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+        ], [
+            'fname.required' => ' First Name is required',
+            'lname.required' => ' Last Name is required',
+        ]);
+
+        //find profile
+        $profile = Profile::find($profile);
+
+        //set edited parameters
+        $profile->fname = $request->fname;
+        $profile->lname = $request->lname;
+        $profile->body = $request->body;
+
+        //Update Profile
+        $profile->save();
+
+        //display Home Page.
+        return redirect()->route('home')->with('message', 'Updated Profile');
     }
 
     /**
