@@ -30,24 +30,52 @@ class QuestionController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new question.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        //get new question instance
+        $question = new Question;
+
+        //set edit variable as false : new question
+        $edit = FALSE;
+
+        //display the question view
+        return view('questionForm', ['question' => $question,'edit' => $edit  ]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created question in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        //validations
+        $input = $request->validate([
+            'body' => 'required|min:5',
+        ], [
+            'body.required' => 'Body is required',
+            'body.min' => 'Body must be at least 5 characters',
+        ]);
+
+        //get inputs
+        $input = request()->all();
+
+        //new instance
+        $question = new Question($input);
+
+        //set user ID
+        $question->user()->associate(Auth::user());
+
+        //SAVE
+        $question->save();
+
+        //Display the Home Page
+        return redirect()->route('home')->with('message', 'New Question is Saved!');
     }
 
     /**
