@@ -1,4 +1,17 @@
 @extends('layouts.app')
+@if($edit === FALSE)
+    {{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('NewAnswer',$question)}}
+@endsection
+
+@else()
+    {{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('EditAnswer',$question,$answer->id)}}
+@endsection
+@endif
+
 
 @section('content')
     <div class="container">

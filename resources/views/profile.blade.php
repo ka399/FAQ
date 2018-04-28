@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+{{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('MyProfile')}}
+@endsection
 @section('content')
     <div class="container">
         <div class="row ">

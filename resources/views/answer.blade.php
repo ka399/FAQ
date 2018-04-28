@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+{{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('ViewAnswer',$question,$answer->id)}}
+@endsection
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

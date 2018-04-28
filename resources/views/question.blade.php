@@ -1,10 +1,14 @@
 @extends('layouts.app')
-
+{{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('ViewQuestion',$question->id)}}
+@endsection
 @section('content')
     <div class="container">
         <div class="row ">
             <div class="col-md-8">
                 <div class="card">
+
                     <div class="card-header">Question</div>
 
                     <div class="card-body">

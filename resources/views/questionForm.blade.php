@@ -1,11 +1,27 @@
 @extends('layouts.app')
 
+@if($edit === FALSE)
+    {{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('CreateQuestion')}}
+@endsection
+@else()
+    {{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('EditQuestion',$question->id)}}
+@endsection
+@endif
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
+                    @if($edit === FALSE)
                     <div class="card-header">Create Question</div>
+                    @else()
+                        <div class="card-header">Edit Question</div>
+                        @endif
                     <div class="card-body">
                         @if($edit === FALSE)
                             {!! Form::model($question, ['action' => 'QuestionController@store']) !!}

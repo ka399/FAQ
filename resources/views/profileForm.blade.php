@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+@if($edit === FALSE)
+{{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('CreateProfile')}}
+@endsection
+@else()
+    {{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('EditProfile',$profile)}}
+@endsection
+@endif
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
