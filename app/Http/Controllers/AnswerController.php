@@ -95,13 +95,16 @@ class AnswerController extends Controller
 
     }
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified answer from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($question, $answer)
     {
+        $answer = Answer::find($answer);
+        $answer->delete();
+        return redirect()->route('question.show',['question_id' => $question])->with('message', 'Answere Deleted Successfully!');
 
     }
 }
