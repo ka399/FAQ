@@ -67,7 +67,7 @@ class ProfileController extends Controller
         $profile->save();
 
         //Redirect to home page...Profile gets created
-        return redirect()->route('home')->with('message', 'Profile Created');
+        return redirect()->route('home')->with('message', 'Profile Created Successfully!');
     }
 
     /**
@@ -141,7 +141,7 @@ class ProfileController extends Controller
         $profile->save();
 
         //display Home Page.
-        return redirect()->route('home')->with('message', 'Updated Profile');
+        return redirect()->route('home')->with('message', 'Profile Updated Successfully!');
     }
 
     /**
@@ -150,8 +150,15 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user,$profile)
     {
-        //
+        //Find the corresponding user
+        $user = User::find($user);
+
+        //Get the user profile
+        $profile = $user->profile;
+        $profile->delete();
+        return redirect()->route('home')->with('message', 'Profile Deleted Successfully!');
+
     }
 }
