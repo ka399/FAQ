@@ -89,6 +89,7 @@ class ProfileController extends Controller
 
     }
 
+
     /**
      * Show the form for editing the user profile.
      *

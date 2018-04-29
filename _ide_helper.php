@@ -83,6 +83,7 @@ namespace Illuminate\Support\Facades {
         public static function hasBeenBootstrapped()
         {
             return \Illuminate\Foundation\Application::hasBeenBootstrapped();
+
         }
         
         /**

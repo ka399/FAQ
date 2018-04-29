@@ -88,4 +88,5 @@
     @include('includes.footer')
 </footer>
 </body>
+
 </html>
