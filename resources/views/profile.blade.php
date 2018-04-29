@@ -11,12 +11,19 @@
                     <div class="card-header">My Profile</div>
 
                     <div class="card-body ">
+                        <img src="/uploads/avatars/{{ $profile->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+                        <br/>
+
                         <span class="font-weight-bold">First Name:</span> {{$profile->fname}}</br>
+                        <br/>
+
                         <span class="font-weight-bold">Last Name: </span>{{$profile->lname}}</br>
-                        <span class="font-weight-bold">Body: </span>{{$profile->body}}</br>
+                        <br/>
+                        <span class="font-weight-bold">My Bio: </span>{{$profile->body}}</br>
+
                     </div>
                     <div class="card-footer">
-                        <a class="btn btn-success float-right" href="{{ route('profile.edit', ['profile_id' => $profile->id,'user_id' => $profile->user->id]) }}">
+                        <a class="btn btn-primary float-right" href="{{ route('profile.edit', ['profile_id' => $profile->id,'user_id' => $profile->user->id]) }}">
                             Edit
                         </a>
 
