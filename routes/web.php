@@ -20,7 +20,10 @@ Route::get('/', function () {
 Route::get('/', 'WelcomeController@index')->name('welcome');
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/month/{month}/year/{year}', 'HomeController@index')->name('home.archive');
+Route::get('/user/{user_id}/questions', 'HomeController@index')->name('home.myquestions');
 
 Route::get('/user/{user_id}/profile', 'ProfileController@create')->name('profile.create');
 Route::get('/user/{user_id}/profile/{profile_id}', 'ProfileController@show')->name('profile.show');

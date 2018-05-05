@@ -6,17 +6,21 @@
 <body>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-        <div class="container">
+        <div class="container mr-auto">
 
 
             @guest
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'FAQ') }}
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz4DJIXmiBJ07hob-HCy0BC9G4mmS5cTrgt7q_c3ExLu0E-t6Uww"
+                         style="width:50px; height:50px; float:left; border-radius:25%;margin-right:5px";>
                 </a>
+                <H4>Frequently Asked Questions</H4>
             @else
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    Home
+                <a class="navbar-brand " href="{{ route('home') }}">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz4DJIXmiBJ07hob-HCy0BC9G4mmS5cTrgt7q_c3ExLu0E-t6Uww"
+                         style="width:50px; height:50px; float:left; border-radius:25%;margin-right:5px";>
                 </a>
+                <H4>Frequently Asked Questions</H4>
             @endguest
 
 
@@ -29,7 +33,6 @@
                 <ul class="navbar-nav mr-auto">
 
                 </ul>
-
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
@@ -37,7 +40,15 @@
                         <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                     @else
+
+
+                        @if($profile->avatar!=null)
+                        <img src="/uploads/avatars/{{ $profile->avatar }}" style="width:30px; height:30px; float:left; border-radius:25%;
+                        margin-right:5px;">
+                        @endif
+
                         <li class="nav-item dropdown">
+
 
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 My Account <span class="caret"></span>
@@ -64,6 +75,7 @@
                                 </form>
                             </div>
                         </li>
+
 
                     @endguest
                 </ul>

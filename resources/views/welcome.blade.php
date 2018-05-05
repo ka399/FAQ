@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    FAQ
+                    <img src="http://luxcloud.com/wp-content/uploads/2015/01/LuxCloud-FAQ.png">
                 </div>
             </div>
         </div>

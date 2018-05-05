@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use Illuminate\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Profile;
 use App\User;
-use Illuminate\Support\Facades\Input;
 use Image;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 
 class ProfileController extends Controller
@@ -49,15 +48,7 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         //Validate the input
-        $input = $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
-            'body' => 'required',
-        ], [
-            'fname.required' => ' First Name is required',
-            'lname.required' => ' Last Name is required',
-            'body.required' => ' Body is required',
-        ]);
+        $input =Profile::ValidateInputs($request);
 
 
         $input = request()->all();
@@ -65,14 +56,7 @@ class ProfileController extends Controller
         //create new profile instance populated with inputs
         $profile = new Profile($input);
 
-        //Logic for user upload of avatar
-        if($request->hasFile('avatar')){
-            $avatar = $request->file('avatar');
-            $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
-
-            $profile->avatar = $filename;
-        }
+        $profile->LoadAvatar($request,$profile);
 
 
         //associate with the logged in user
@@ -136,14 +120,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request,  $user, $profile)
     {
-        //Validations
-        $input = $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
-        ], [
-            'fname.required' => ' First Name is required',
-            'lname.required' => ' Last Name is required',
-        ]);
+        $input =Profile::ValidateInputs($request);
 
         //find profile
         $profile = Profile::find($profile);
@@ -152,16 +129,7 @@ class ProfileController extends Controller
         $profile->fname = $request->fname;
         $profile->lname = $request->lname;
         $profile->body = $request->body;
-
-        //Logic for user upload of avatar
-        if($request->hasFile('avatar')){
-            $avatar = $request->file('avatar');
-            $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
-
-            $profile->avatar = $filename;
-        }
-
+        $profile->LoadAvatar($request,$profile);
 
         //Update Profile
         $profile->save();

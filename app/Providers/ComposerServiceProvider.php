@@ -4,10 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class ComposerServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
@@ -15,13 +15,13 @@ class AppServiceProvider extends ServiceProvider
     {
         //View Composer --
         view()->composer(
-            ['app','home','question','answer','questionForm','answerForm'],
-            'App\Http\ViewComposers\ProfileComposer'
+            'home',
+            'App\Http\ViewComposers\QuestionComposer'
         );
     }
 
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */

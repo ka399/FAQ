@@ -29,10 +29,13 @@
                             {!! Form::model($question, ['route' => ['question.update', $question->id], 'method' => 'patch']) !!}
                         @endif
                         <div class="form-group">
-                            {!! Form::label('body', 'Body') !!}
-                            {!! Form::text('body', $question->body, ['class' => 'form-control','required' => 'required']) !!}
+                            {!! Form::label('body', 'Tip : How to quickly get a good answer') !!}
+                            <p>1. Keep your question short and to the point.</p>
+                            <p>2. Check for grammar or spelling errors.</p>
+                            <p>3. Phrase it like a question.</p>
+                            {!! Form::textarea('body', $question->body, ['class' => 'form-control','required' => 'required']) !!}
                         </div>
-                        <button class="btn btn-primary float-right" value="submit" type="submit" id="submit">Save
+                        <button class="btn btn-outline-primary float-right" value="submit" type="submit" id="submit">Save
                         </button>
                         {!! Form::close() !!}
                     </div>

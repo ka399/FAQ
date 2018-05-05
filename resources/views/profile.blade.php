@@ -19,7 +19,7 @@
 
                         <span class="font-weight-bold">Last Name: </span>{{$profile->lname}}</br>
                         <br/>
-                        <span class="font-weight-bold">My Bio: </span>{{$profile->body}}</br>
+                        <span class="font-weight-bold">About Me: </span>{{$profile->body}}</br>
 
                     </div>
                     <div class="card-footer">
