@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2018-04-28 23:38:41.
+    * Generated on 2018-05-06 04:43:00.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -1011,6 +1011,5 @@ namespace PHPSTORM_META {
     override(\last(0), elementType(0));
     override(\with(0), type(0));
     override(\tap(0), type(0));
-
 
 }
