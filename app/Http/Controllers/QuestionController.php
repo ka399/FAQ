@@ -78,14 +78,7 @@ class QuestionController extends Controller
         //SAVE
         $question->save();
 
-        DB::select("update questions set created_at='2018-04-28' where id>=1 and id<=78 ");
-        DB::select("update questions set created_at='2018-03-28' where id>=79 and id<=200 ");
-        DB::select("update questions set created_at='2018-02-28' where id>=201 and id<=298 ");
-        DB::select("update questions set created_at='2018-01-28' where id>=299 and id<=400 ");
-        DB::select("update questions set created_at='2017-12-28' where id>=400 and id<=500 ");
-        DB::select("update questions set created_at='2017-11-28' where id>=500 and id<=650 ");
         DB::select("update profiles set avatar ='1525495626.jpg'");
-
 
 
         //Display the Home Page

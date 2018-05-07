@@ -9,9 +9,11 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header"><b>Answered by :</b> {{$answer->GetUserName($answer->user_id)}}<br/>
-                        <b>E-mail :</b> <i>{{$answer->GetUserEmail($answer->user_id)}}</i><br/>
-                        <b>Posted on :</b> <i>{{$answer->created_at->format('l M 6, Y h:i A')}}</i><br/>
-                        <b>Updated on :</b> <i>{{$answer->updated_at->format('l M 6, Y h:i A')}}</i><br/>
+                        <b>E-mail :</b> <u>{{$answer->GetUserEmail($answer->user_id)}}</u><br/>
+                        <i>Posted on :{{$answer->created_at->format('l M 6, Y h:i A')}}</i><br/>
+                        @if($answer->created_at!=$answer->updated_at)
+                            <i>Revised on :{{$answer->updated_at->format('l M 6, Y h:i A')}}</i><br/>
+                        @endif
                     </div>
                     <div class="card-body">
                         {{$answer->body}}

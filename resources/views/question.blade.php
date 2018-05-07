@@ -12,9 +12,11 @@
                     <div class="card-header">
                         <b>Question Title : {{$question->title}} <br/></b>
                         <i>Posted on : {{$question->created_at->format('l M 6, Y h:i A')}}</i>
+                        @if($question->created_at!=$question->updated_at)
                        <br/>
-                        <i>Updated on : {{$question->updated_at->format('l M 6, Y h:i A')}}
+                        <i>Revised on : {{$question->updated_at->format('l M 6, Y h:i A')}}
                         </i>
+                        @endif
                     </div>
 
                     <div class="card-body">

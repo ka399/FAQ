@@ -39,7 +39,7 @@
             <br/>
 
             <h3 style="font-family:'Consolas'; ">Welcome! <br/>
-                <br/>FAQ website helps you to find answers to commonly asked questions. Please register/login to continue. </h3>
+                <br/>FAQ website helps you to find answers to commonly asked questions. <br/><i> Please register/login to continue.</i> </h3>
             <br/>
             <br/>
             @include('includes.FAQCaraousel')
