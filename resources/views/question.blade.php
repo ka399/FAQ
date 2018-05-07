@@ -10,10 +10,11 @@
                 <div class="card">
 
                     <div class="card-header">
-                        <strong>Question Title : {{$question->title}} <br/></strong>
-                            <i>Posted on :
-                        {{$question->created_at->format('l M 6, Y h:i A')}}
-                            </i>
+                        <b>Question Title : {{$question->title}} <br/></b>
+                        <i>Posted on : {{$question->created_at->format('l M 6, Y h:i A')}}</i>
+                       <br/>
+                        <i>Updated on : {{$question->updated_at->format('l M 6, Y h:i A')}}
+                        </i>
                     </div>
 
                     <div class="card-body">
@@ -37,9 +38,10 @@
                     </div>
                 </div>
 
+                <br/>
                 <div class="card">
                     <div class="card-header">
-                        <b>{{$question->answers->count()}} Answers</b>
+                        <b>{{$question->answers->count()}} Answer(s)</b>
                     </div>
 
                     <div class="card-body">

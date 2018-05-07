@@ -37,8 +37,13 @@
     <div class="container">
         <div class="container" mb-10 style="font-family:KacstLetter;">
             <br/>
+
+            <h3 style="font-family:'Consolas'; ">Welcome! <br/>
+                <br/>FAQ website helps you to find answers to commonly asked questions. Please register/login to continue. </h3>
+            <br/>
             <br/>
             @include('includes.FAQCaraousel')
+            <br/>
             @include('includes.footer')
         </div>
     </div>
