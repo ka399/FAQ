@@ -49,19 +49,15 @@ class Question extends Model
 
     }
 
-    /*public static function ArchiveStats()
+    public static function ArchiveStats()
     {
         return static::query()->selectRaw('strftime(? ,created_at)as year,
             strftime(?,created_at) as month,count(id) as qcount' ,['%Y','%m'])
             -> groupBy('year','month')
             ->orderByDesc('created_at')
             ->get();
-    }*/
-
-    public static function ArchiveStats()
-    {
-        //returnDB::select(select EXTRACT(YEAR FROM TIMESTAMP created_at)as year,
-            //EXTRACT(MONTH FROM TIMESTAMP created_at) as month,count(id) as qcount group by year,month order by created_at desc')->get();
     }
+
+
 
 }

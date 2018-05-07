@@ -20,12 +20,12 @@
             <h4><b>Quick Links</b></h4>
             <li>
                 <a href="{{ route('home.myquestions', ['user_id' => Auth::user()->id]) }}">
-                    My Questions
+                    My Questions {{ '('.Auth::user()->questions()->count().')' }}
                 </a>
             </li>
             <li>
                 <a href="{{ route('home') }}">
-                    All Questions
+                    All Questions {{ '('. \App\Question::ALL()->count().')' }}
                 </a>
             </li>
 

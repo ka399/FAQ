@@ -8,6 +8,6 @@ $factory->define(App\Profile::class, function (Faker $faker) {
         'fname' => $faker->firstName,
         'lname' => $faker->lastName,
         'body' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
-        'avatar' => $faker->image(),
+        'avatar' => '1525495626.jpg',
     ];
 });
