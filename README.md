@@ -1,4 +1,5 @@
-### IS601 Final Project (under the guidance of Prof Williams) 
+# FAQ (Frequently Asked Questions) 
+## IS601 Final Project using Laravel and Php (under the guidance of Prof Williams) 
 #### Submitted by : Kashish Agarwal (ka399@njit.edu) - MS in Information Systems, NJIT 
 
 # Project Theme:
@@ -139,6 +140,9 @@ As a new user-> I should be able to create my pofile abd upload the profile pict
 9. Edit Run Configuration->Add PHP Script: server single Instance,Map Artisan file, Arguments serve,Setup localhost (http://localhost:8000)
 10. Run the project -> register, login and ready to use.
 For any questions or support -> mail me at ka399@njit.edu
+
+# Heroku Deployed Link
+https://is601ka399faq.herokuapp.com
 
 ## Thank You Note:
 Special Thanks to Professor Williams for his support throughout the course make learning laravel easy and interesting. Appreciate his effort, time and guidance during this course. Regards.
