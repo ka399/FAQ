@@ -31,37 +31,37 @@ Below are some Epics and respective User Stories along with description how to u
 As a registered user, I want to see the quick snapshot of archived questions for a respective month-year along with total question count during my session so that I can view the question statistics at any point of time.
 
 ### Acceptance Criteria:
-a. Archive Sidebar on the right side of the page.
-b. Sidebar should display archived question stats in month-year(count).
+1. Archive Sidebar on the right side of the page.
+2. Sidebar should display archived question stats in month-year(count).
 
 ### User Story 02: 
 As a registered user, I want to see the quick snapshot of archived questions sorted by year and month in descending order so that I can easily understand the graph/statistics of posted question at any point of time.
 
 ### Acceptance Criteria:
-a. Archives Sidebar should display archived question stats in month-year(count) ordered by year desc and month desc.
+1. Archives Sidebar should display archived question stats in month-year(count) ordered by year desc and month desc.
 
 ### User Story 03: 
 As a registered user, I want to navigate and display filtered archived questions list for a respective month & year during my session so that I can view the old questions posted for the particular time period.
 
 ### Acceptance Criteria:
-a. User should be able to click on the links shown on archives sidebar.
-b. On click, filtered question result set should be populated.
+1. User should be able to click on the links shown on archives sidebar.
+2. On click, filtered question result set should be populated.
 
 ### User Story 04: 
 As a registered user, I want to see correct list of archived questions paginated for that month & year so that I can view the correct set questions posted for the particular time period. For e.g. May 2018 questions should not have May 2017 questions.
 
 ### Acceptance Criteria:
-a. On click, filtered question result set should be populated in a paginated way. (multiple pages)
-b. Count of questions should match the count displayed in archives sidebar.
-c. Question dataset should be correct as per the conditional month and year criteria.
+1. On click, filtered question result set should be populated in a paginated way. (multiple pages)
+2. Count of questions should match the count displayed in archives sidebar.
+3. Question dataset should be correct as per the conditional month and year criteria.
 
 ###  User Story 05: 
 As a registered user, I want to see helpful archived questions sidebar menu on multiple pages so that I can easily view the questions statistics and navigate through links at any given point of time. 
 
 ### Acceptance Criteria:
-a. Archives Sidebar menu is present on Home, Question, Answer View Pages.
-b. All links should be clickable by the user and should throw no error.
-c. Correct question dataset should be populated on navigation thorugh archive sidebar links.
+1. Archives Sidebar menu is present on Home, Question, Answer View Pages.
+2. All links should be clickable by the user and should throw no error.
+3. Correct question dataset should be populated on navigation thorugh archive sidebar links.
 
 ## Steps to use the archive feature: 
 1. Register and Login in to the FAQ Application
