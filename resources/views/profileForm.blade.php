@@ -45,7 +45,7 @@
                             </div>
 
 
-                        <button class="btn btn-primary float-right" value="submit" type="submit" id="submit">Save
+                        <button class="btn btn-outline-primary float-right" value="submit" type="submit" id="submit">Save
                         </button>
                         {!! Form::close() !!}
 

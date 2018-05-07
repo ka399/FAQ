@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Answer;
+use App\Profile;
 use App\Question;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -57,6 +58,7 @@ class AnswerController extends Controller
     public function show($question,  $answer)
     {
         $answer = Answer::find($answer);
+
         return view('answer')->with(['answer' => $answer, 'question' => $question]);
     }
     /**

@@ -15,7 +15,7 @@ class ComposerServiceProvider extends ServiceProvider
     {
         //View Composer --
         view()->composer(
-            'home',
+            ['includes/archive'],
             'App\Http\ViewComposers\QuestionComposer'
         );
     }

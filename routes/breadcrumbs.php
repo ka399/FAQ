@@ -72,13 +72,13 @@ Breadcrumbs::register('EditQuestion', function ($breadcrumbs,$questionID) {
 // HomePage > New Question
 Breadcrumbs::register('CreateQuestion', function ($breadcrumbs) {
     $breadcrumbs->parent('Home');
-    $breadcrumbs->push('Create New Question', route('question.create'));
+    $breadcrumbs->push('Post New Question', route('question.create'));
 });
 
 // HomePage > Question -> New Answer
 Breadcrumbs::register('NewAnswer', function ($breadcrumbs,$questionID) {
     $breadcrumbs->parent('ViewQuestion',$questionID);
-    $breadcrumbs->push('Create New Answer', route('answers.create',['question_id'=> $questionID]));
+    $breadcrumbs->push('Post New Answer', route('answers.create',['question_id'=> $questionID]));
 });
 
 // HomePage > Question -> View Answer

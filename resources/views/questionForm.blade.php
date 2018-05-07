@@ -18,7 +18,7 @@
             <div class="col-md-12">
                 <div class="card">
                     @if($edit === FALSE)
-                    <div class="card-header">Create Question</div>
+                        <div class="card-header"><b>Post Question</b></div>
                     @else()
                         <div class="card-header">Edit Question</div>
                         @endif
@@ -30,13 +30,18 @@
                         @endif
                         <div class="form-group">
                             {!! Form::label('body', 'Tip : How to quickly get a good answer') !!}
-                            <p>1. Keep your question short and to the point.</p>
+                            <p>1. Phrase it like question.Keep it short and to the point.</p>
                             <p>2. Check for grammar or spelling errors.</p>
-                            <p>3. Phrase it like a question.</p>
+                            <label><strong>Question Title :</strong></label>
+                            {!! Form::text('title', $question->title, ['class' => 'form-control','required' => 'required']) !!}
+                            <br/>
+                            <label><strong>Question Detail :</strong></label>
                             {!! Form::textarea('body', $question->body, ['class' => 'form-control','required' => 'required']) !!}
                         </div>
-                        <button class="btn btn-outline-primary float-right" value="submit" type="submit" id="submit">Save
+                        <button class="btn btn-outline-primary float-right" value="submit" type="submit" id="submit">
+                            Save
                         </button>
+
                         {!! Form::close() !!}
                     </div>
 

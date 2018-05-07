@@ -8,11 +8,12 @@
         <div class="row justify-content-center">
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Questions
-                        <a class="btn btn-primary float-right" href="{{ route('question.create') }}">
-                            Create a Question
-                        </a>
 
+                    <div class="card-header"><b>Questions:</b>
+                        <a class="btn btn-outline-primary float-right" href="{{ route('question.create') }}">
+                            + Add Question
+                        </a>
+                        <br/>
                         <div class="card-body">
 
                             <div class="card-deck">
@@ -31,8 +32,8 @@
                                             <div class="card-footer">
                                                 <p class="card-text">
 
-                                                    <a class="btn btn-primary float-right" href="{{ route('question.show', ['id' => $question->id]) }}">
-                                                        View
+                                                    <a class="btn btn-link float-right" href="{{ route('question.show', ['id' => $question->id]) }}">
+                                                        <i>View More>></i>
                                                     </a>
                                                 </p>
                                             </div>
@@ -54,41 +55,7 @@
                 </div>
 
             </div>
-            <div class="col-md-3">
-                <div class="card sb-card">
-                    <div class="card-body">
-
-                        <h4><b>Archives</b></h4>
-
-                        @foreach($archives as $stats)
-                        <li>
-                            <a href="{{ route('home.archive', ['month'=> $stats->month,'year' => $stats->year]) }}">
-                                {{  date("F", mktime(0, 0, 0, $stats->month, 1)).' '. $stats->year.' ('.$stats->qcount.')' }}
-                            </a>
-                        </li>
-                        @endforeach
-                    </div>
-                </div>
-                <br/>
-                <div class="card sb-card">
-                    <div class="card-body">
-
-                        <h4><b>Help</b></h4>
-                        <li>
-                            <a href="{{ route('home.myquestions', ['user_id' => Auth::user()->id]) }}">
-                                My Questions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('home') }}">
-                                All Questions
-                            </a>
-                        </li>
-
-                    </div>
-                </div>
-            </div>
-
+            @include("includes.archive")
         </div>
 
 

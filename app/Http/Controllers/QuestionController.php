@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
 use Illuminate\Http\Request;
 use App\Question;
 use Illuminate\Support\Facades\Auth;
@@ -57,9 +58,11 @@ class QuestionController extends Controller
         //validations
         $input = $request->validate([
             'body' => 'required|min:5',
+            'title' => 'required',
         ], [
             'body.required' => 'Body is required',
             'body.min' => 'Body must be at least 5 characters',
+            'title.required' => ' title is required',
         ]);
 
         //get inputs
@@ -110,13 +113,17 @@ class QuestionController extends Controller
      */
     public function update(Request $request, Question $question)
     {
+        //validations
         $input = $request->validate([
             'body' => 'required|min:5',
+            'title' => 'required',
         ], [
             'body.required' => 'Body is required',
             'body.min' => 'Body must be at least 5 characters',
+            'title.required' => ' title is required',
         ]);
         $question->body = $request->body;
+        $question->title = $request->title;
         $question->save();
         return redirect()->route('question.show',['question_id' => $question->id])->with('message', 'Question Updated Successfully!');
     }

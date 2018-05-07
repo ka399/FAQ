@@ -1,6 +1,6 @@
 @if ($breadcrumbs)
 
-    <div class="container ml-auto bg-info">
+    <div class="container navbar-collapse ml-auto">
 
     <ol class="breadcrumb">
         @foreach ($breadcrumbs as $breadcrumb)

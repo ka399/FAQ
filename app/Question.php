@@ -7,7 +7,7 @@ use Illuminate\database\Eloquent;
 
 class Question extends Model
 {
-    protected $fillable = ['body'];
+    protected $fillable = ['body','title'];
 
     //
     public function user()
@@ -18,11 +18,6 @@ class Question extends Model
     public function answers()
     {
         return $this->hasMany('App\Answer');
-    }
-
-    protected function scopePopular($query)
-    {
-        return $query->where('votes', '>', 100);
     }
 
     public static function FilterQuestions()
@@ -62,4 +57,5 @@ class Question extends Model
             ->orderByDesc('created_at')
             ->get();
     }
+
 }

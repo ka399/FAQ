@@ -23,12 +23,12 @@
 
                     </div>
                     <div class="card-footer">
-                        <a class="btn btn-primary float-right" href="{{ route('profile.edit', ['profile_id' => $profile->id,'user_id' => $profile->user->id]) }}">
+                        <a class="btn btn-outline-primary float-right" href="{{ route('profile.edit', ['profile_id' => $profile->id,'user_id' => $profile->user->id]) }}">
                             Edit
                         </a>
 
                         {{ Form::open(['method'  => 'DELETE', 'route' => ['profile.destroy', Auth::User(), $profile]])}}
-                        <button class="btn btn-danger float-right mr-2" value="submit" type="submit" id="submit">Delete
+                        <button class="btn btn-outline-danger float-right mr-2" value="submit" type="submit" id="submit">Delete
                         </button>
                         {!! Form::close() !!}
                     </div>
