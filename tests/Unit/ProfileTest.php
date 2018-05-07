@@ -30,4 +30,40 @@ class ProfileTest extends TestCase
         $profile->lname = 'New last Name';
         $this->assertTrue($profile->save());
     }
+
+    public function testDelete()
+    {
+        $user = factory(\App\User::class)->make();
+        $user->save();
+        $profile = factory(\App\Profile::class)->make();
+        $profile->user()->associate($user);
+        $profile->save();
+        $this->assertTrue(Profile::find($profile->id)->delete());
+
+    }
+
+    public function testRetrieve()
+    {
+        $user = factory(\App\User::class)->make();
+        $user->save();
+        $profile = factory(\App\Profile::class)->make();
+        $profile->fname ='Kashish';
+        $profile->user()->associate($user);
+        $profile->save();
+        $this->assertTrue(Profile::find($profile->id)->fname == 'Kashish');
+
+    }
+
+    public function testProfilePictureSave()
+    {
+        $user = factory(\App\User::class)->make();
+        $user->save();
+        $profile = factory(\App\Profile::class)->make();
+        $profile->avatar ='Kashish.JPEG';
+        $profile->user()->associate($user);
+        $profile->save();
+        $this->assertTrue(Profile::find($profile->id)->avatar == 'Kashish.JPEG');
+
+    }
+
 }

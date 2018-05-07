@@ -57,7 +57,6 @@ class FeatureArchiveTest extends TestCase
         $this->assertTrue($questions1->count()>=0);
     }
 
-
     /**
      * Test If my questions returns the questions for a logged in user e.g. user_id =1
      * If new user --> questions =0.
@@ -80,15 +79,11 @@ class FeatureArchiveTest extends TestCase
      */
     public  function testArchivedQuestions()
     {
-        $month = 5;
-        $year = 2017;
+        //archved month eloquent query brings data for that month and year
+        $archivedquestions = Question::query()
+            ->whereMonth('created_at','05')
+            ->whereYear('created_at','2018');
 
-        $archivedquestions = Question::query()->whereMonth('created_at','=', $month)
-            ->whereYear('created_at','=', $year);
-
-
-        //count should match -> user questions
         $this->assertTrue($archivedquestions->count()>=0);
-
     }
 }

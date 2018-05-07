@@ -78,9 +78,6 @@ class QuestionController extends Controller
         //SAVE
         $question->save();
 
-        DB::select("update profiles set avatar ='1525495626.jpg'");
-
-
         //Display the Home Page
         return redirect()->route('home')->with('message', 'New Question Saved Successfully!');
     }
