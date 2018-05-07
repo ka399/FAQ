@@ -60,8 +60,8 @@ class Question extends Model
 
     public static function ArchiveStats()
     {
-        return static::query()->selectRaw('EXTRACT(YEAR FROM TIMESTAMP created_at)as year,
-            EXTRACT(MONTH FROM TIMESTAMP created_at) as month,count(id) as qcount group by year,month order by created_at desc')->get();
+        //returnDB::select(select EXTRACT(YEAR FROM TIMESTAMP created_at)as year,
+            //EXTRACT(MONTH FROM TIMESTAMP created_at) as month,count(id) as qcount group by year,month order by created_at desc')->get();
     }
 
 }

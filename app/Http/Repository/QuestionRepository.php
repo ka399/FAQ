@@ -7,8 +7,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\database\Eloquent;
 use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 use App;
-
+use function foo\func;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Carbon;
 /**
  * Question Repository class
  */
@@ -21,7 +25,10 @@ class QuestionRepository
      */
     public function getArchivesList()
     {
-        $archives = Question::ArchiveStats();
+        //$archives = Question::ArchiveStats();
+
+        $archives = DB::select('select EXTRACT(YEAR FROM TIMESTAMP created_at)as year,
+            EXTRACT(MONTH FROM TIMESTAMP created_at) as month,count(id) as qcount from questions group by year,month order by created_at desc');
 
         return $archives;
     }
