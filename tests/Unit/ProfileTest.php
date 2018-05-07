@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Profile;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -19,6 +20,14 @@ class ProfileTest extends TestCase
         $user->save();
         $profile = factory(\App\Profile::class)->make();
         $profile->user()->associate($user);
+        $this->assertTrue($profile->save());
+    }
+
+    public function testUpdate()
+    {
+        $profile = Profile::find(1);
+        $profile->fname = 'New Name';
+        $profile->lname = 'New last Name';
         $this->assertTrue($profile->save());
     }
 }

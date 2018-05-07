@@ -25,10 +25,7 @@ class QuestionRepository
      */
     public function getArchivesList()
     {
-        //$archives = Question::ArchiveStats();
-
-        $archives = DB::select('select EXTRACT(YEAR FROM created_at)as year,
-            EXTRACT(MONTH FROM created_at) as month,count(id) as qcount from questions group by year,month order by year desc,month desc');
+        $archives = Question::ArchiveStats();
 
         return $archives;
     }
