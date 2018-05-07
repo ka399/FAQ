@@ -141,7 +141,7 @@ As a new user-> I should be able to create my pofile abd upload the profile pict
 10. Run the project -> register, login and ready to use.
 For any questions or support -> mail me at ka399@njit.edu
 
-# Heroku Deployed Link
+## Heroku Deployed Link
 https://is601ka399faq.herokuapp.com
 
 ## Thank You Note:
